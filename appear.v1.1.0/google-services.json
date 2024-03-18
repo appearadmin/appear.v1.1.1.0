@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "496314837753",
+    "project_id": "appear-bde1e",
+    "storage_bucket": "appear-bde1e.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:496314837753:android:0262cbd4a503c21f7c1028",
+        "android_client_info": {
+          "package_name": "org.test.AppEAR"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBskhWtAyjBgAk0Wwa7b3XmloHuyYoPsdc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

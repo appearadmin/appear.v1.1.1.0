@@ -1,0 +1,210 @@
+ScreenManager:
+    MainScreen:
+    StudentScreen1:
+    StudentScreen2:
+    TeacherScreen1:
+    TeacherScreen2:
+    LastScreen:
+
+<MainScreen>:
+    name: "main"
+
+    MDFloatLayout:
+        md_bg_color : [147/255,182/255,124/255,1]
+
+        MDLabel :
+            text : 'App'
+            bold : True
+            color : [35/255,31/255,32/255,1]
+            font_size : 70
+            pos_hint : {"center_x" : .36, "center_y" : .8}
+            halign : "center"
+
+        MDLabel :
+            text : 'EAR'
+            bold : True
+            color : [233/255,255/255,251/255,1]
+            font_size : 70
+            pos_hint : {"center_x" : .65, "center_y" : .8}
+            halign : "center"
+
+        MDLabel :
+            text : 'WE HEAR YOU'
+            bold : True
+            color : [233/255,255/255,251/255,1]
+            font_size : 20
+            pos_hint : {"center_y" : .7}
+            halign : "center"
+
+        MDLabel :
+            text : 'Are you a student or teacher?'
+            bold : True
+            color : [35/255,31/255,32/255,1]
+            font_size : 20
+            pos_hint : {"center_y" : .5}
+            halign : "center"
+
+        Button:
+            text: "Student"
+            size_hint: .66, .065
+            pos_hint : {"center_x":.5 , "center_y": .4}
+            on_press: root.manager.current = "student1"
+            canvas.before:
+                RoundedRectangle:
+                    size : self.size
+                    pos : self.pos
+                    radius : [5]
+        
+        Button:
+            text: "Teacher"
+            size_hint: .66, .065
+            pos_hint : {"center_x":.5 , "center_y": .3}
+            on_press: root.manager.current = "teacher1"
+            canvas.before:
+                RoundedRectangle:
+                    size : self.size
+                    pos : self.pos
+                    radius : [5]
+
+<StudentScreen1>:
+    name: "student1"
+
+    MDIconButton:
+        icon: "arrow-left"
+        pos_hint : {"center_x":.05 , "center_y": .95}
+        on_press: root.manager.current = "main"
+    
+    MDRaisedButton:
+        text: "Next Page"
+        text_color: 1, 1, 1, 1
+        bold: True
+        md_bg_color: [57 / 255, 89 / 255, 50 / 255, 1]
+        pos_hint : {"center_x":.5, "center_y": .10}
+        font_size : 16
+        size: 800, 100
+        size_hint : None, None
+        on_release: root.manager.current = "student2"
+        on_press: root.set_var(*args)
+
+<StudentScreen2>:
+    name: "student2"
+
+    MDIconButton:
+        icon: "arrow-left"
+        pos_hint : {"center_x":.05 , "center_y": .95}
+        on_press: root.manager.current = "student1"
+
+    MDLabel :
+        text : 'Other Concerns:'
+        bold : False
+        color : [35/255,31/255,32/255,1]
+        size: "48dp", "48dp"
+        pos_hint : {"center_x" : .6, "center_y" : .38}
+        halign : "left"  
+    
+    MDRaisedButton:
+        text: "SUBMIT"
+        text_color: 1, 1, 1, 1
+        bold: True
+        md_bg_color: [57 / 255, 89 / 255, 50 / 255, 1]
+        pos_hint : {"center_x":.5, "center_y": .10}
+        font_size : 16
+        size: 800, 100
+        size_hint : None, None
+        on_release: root.manager.current = "last"
+        on_press: root.submit(*args)
+
+<TeacherScreen1>:
+    name: "teacher1"
+
+    MDIconButton:
+        icon: "arrow-left"
+        pos_hint : {"center_x":.05 , "center_y": .95}
+        on_press: root.manager.current = "main"
+
+    MDRaisedButton:
+        text: "Next page"
+        text_color: 1, 1, 1, 1
+        bold: True
+        md_bg_color: [57 / 255, 89 / 255, 50 / 255, 1]
+        pos_hint : {"center_x":.5, "center_y": .10}
+        font_size : 16
+        size: 800, 100
+        size_hint : None, None
+        on_press: root.set_var(*args)
+        on_release: root.manager.current = "teacher2"
+
+<TeacherScreen2>:
+    name: "teacher2"
+
+    MDIconButton:
+        icon: "arrow-left"
+        pos_hint : {"center_x":.05 , "center_y": .95}
+        on_press: root.manager.current = "teacher1"
+
+    MDLabel :
+        text : 'Other Concerns:'
+        bold : False
+        color : [35/255,31/255,32/255,1]
+        size: "48dp", "48dp"
+        pos_hint : {"center_x" : .6, "center_y" : .38}
+        halign : "left"  
+    
+    MDRaisedButton:
+        text: "SUBMIT"
+        text_color: 1, 1, 1, 1
+        bold: True
+        md_bg_color: [57 / 255, 89 / 255, 50 / 255, 1]
+        pos_hint : {"center_x":.5, "center_y": .10}
+        font_size : 16
+        size: 800, 100
+        size_hint : None, None
+        on_release: root.manager.current = "last"
+        on_press: root.submit(*args)
+
+<LastScreen>:
+    name: "last"
+
+    MDFloatLayout:
+        md_bg_color : [147/255,182/255,124/255,1]
+
+        MDLabel :
+            text : 'App'
+            bold : True
+            color : [35/255,31/255,32/255,1]
+            font_size : 70
+            pos_hint : {"center_x" : .36, "center_y" : .7}
+            halign : "center"
+
+        MDLabel :
+            text : 'EAR'
+            bold : True
+            color : [233/255,255/255,251/255,1]
+            font_size : 70
+            pos_hint : {"center_x" : .65, "center_y" : .7}
+            halign : "center"
+
+        MDLabel :
+            text : 'WE HEAR YOU'
+            bold : True
+            color : [233/255,255/255,251/255,1]
+            font_size : 20
+            pos_hint : {"center_y" : .6}
+            halign : "center"
+
+        MDLabel :
+            text: "Thank you for submitting your concern"
+            pos_hint : {"center_y": .3}
+            font_size : 16
+            halign : "center"
+            color: [233/255,255/255,251/255,1]
+
+        MDRaisedButton:
+            text: "Exit"
+            text_color: 1, 1, 1, 1
+            md_bg_color: [57 / 255, 89 / 255, 50 / 255, 1]
+            pos_hint : {"center_x":.85, "center_y": .10}
+            font_size : 16
+            size: 700, 80
+            size_hint : None, None
+            on_press: root.on_exit()
